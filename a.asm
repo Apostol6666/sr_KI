@@ -48,7 +48,6 @@
         mov ax, cx
         cmp cx, 0
         jg %%_digit
-    
     popd
 %endmacro     
 
@@ -58,7 +57,6 @@ section .text
 global _start
 
 _start:
-    
     ;поиск суммы 1 массива
     mov bx, 0
     mov eax, 0 
@@ -66,14 +64,13 @@ _start:
     
 _loop:
     add eax, [x + ebx]
-    
     add bx, 4
+    
 cmp bx, alen
 jne _loop
-     
-    mov [count2], eax
-    
-    mov eax, [count2]
+
+    mov [sum1], eax
+    mov eax, [sum1]
   
     
     
@@ -83,14 +80,14 @@ jne _loop
     
 _zaloop:
     add eax, [y + ebx]
-    
     add bx, 4
+    
 cmp ebx, alen2
+
 jne _zaloop
 
-    mov [count3], eax
-    
-    mov eax, [count3]
+    mov [sum2], eax
+    mov eax, [sum2]
   
     
     ; деление по размерности
@@ -103,23 +100,23 @@ jne _zaloop
 
     ;среднее арифметическое первого массива
     mov edx, 0
-    mov eax, [count2]
+    mov eax, [sum1]
     mov ecx, [c]
     div ecx
     
-    mov [a], eax
+    mov [sr1], eax
    
    ;среднее арифметическое второго массива 
     mov edx, 0
-    mov eax, [count3]
+    mov eax, [sum2]
     mov ecx, [c]
     div ecx
     
-    mov [b], eax
+    mov [sr2], eax
     
     ;разность
-    mov ax, [b]
-    mov bx, [a]
+    mov ax, [sr2]
+    mov bx, [sr1]
     sub ax, bx
     dprint
     
@@ -146,8 +143,8 @@ section .data
     
 section .bss
     count resd 1
-    count2 resd 1 ;сумма первого массива
-    count3 resd 1 ;сумма второго массива
+    sum1 resd 1 ;сумма первого массива
+    sum2 resd 1 ;сумма второго массива
     c resd 1 ;длина массива
-    a resd 1 ;первое среднее ариф
-    b resd 1 ;второе среднее ариф
+    sr1 resd 1 ;первое среднее ариф
+    sr2 resd 1 ;второе среднее ариф
