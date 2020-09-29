@@ -128,10 +128,10 @@ jne _loopp
     int 0x80
 
 section .data
-    x dd 5, 3, 2, 6, 1, 7, 4
-    alen equ $ - x
+    x dd 5, 3, 2, 6, 1, 7, 4 ;инициализируем массив 1
+    alen equ $ - x 
     
-    y dd 0, 10, 1, 9, 2, 8, 5
+    y dd 0, 10, 1, 9, 2, 8, 5 ;инициализируем массив 2
     alen2 equ $ - y
     
 
@@ -142,7 +142,7 @@ section .data
     nlen equ $ - newline
     
 section .bss
-    count resd 1
+    count resd 1 ;везде резервируем 1 байт
     sum1 resd 1 ;сумма первого массива
     sum2 resd 1 ;сумма второго массива
     c resd 1 ;длина массива
