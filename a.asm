@@ -104,7 +104,7 @@ jne _loopp
     mov ecx, [c]
     div ecx
     
-    mov [sr1], eax
+    mov [sum1], eax
    
    ;среднее арифметическое второго массива 
     mov edx, 0
@@ -112,11 +112,11 @@ jne _loopp
     mov ecx, [c]
     div ecx
     
-    mov [sr2], eax
+    mov [sum2], eax
     
     ;разность
-    mov ax, [sr2]
-    mov bx, [sr1]
+    mov ax, [sum2]
+    mov bx, [sum1]
     sub ax, bx
     dprint
     
