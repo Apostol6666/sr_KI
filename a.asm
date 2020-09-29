@@ -70,9 +70,6 @@ cmp bx, alen ;сравниваем с длиной
 jne _loop ;прыгаем на loop
 
     mov [sum1], eax
-    mov eax, [sum1]
-  
-    
     
     ; поиск суммы 2 массива
     mov bx, 0
@@ -82,13 +79,10 @@ _loopp:
     add eax, [y + ebx]
     add bx, 4
     
-cmp ebx, alen2
-
-jne _loopp
+cmp ebx, alen2 ;сравниваем с длиной
+jne _loopp ;прыгаем на loopp
 
     mov [sum2], eax
-    mov eax, [sum2]
-  
     
     ; деление по размерности
     mov edx, 0
