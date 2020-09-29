@@ -66,8 +66,8 @@ _loop:
     add eax, [x + ebx]
     add bx, 4
     
-cmp bx, alen
-jne _loop
+cmp bx, alen ;сравниваем с длиной
+jne _loop ;прыгаем на loop
 
     mov [sum1], eax
     mov eax, [sum1]
