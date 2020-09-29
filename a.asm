@@ -78,13 +78,13 @@ jne _loop
     mov bx, 0
     mov eax, 0  
     
-_zaloop:
+_loopp:
     add eax, [y + ebx]
     add bx, 4
     
 cmp ebx, alen2
 
-jne _zaloop
+jne _loopp
 
     mov [sum2], eax
     mov eax, [sum2]
